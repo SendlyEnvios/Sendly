@@ -76,7 +76,7 @@ form.addEventListener('submit', async (e) => {
     const dados = new FormData(form);
 
     //let data = await fetch('http://172.16.0.213:8080/cadastro',{method: 'POST',body: dados});//forma rede local
-    let data = await fetch('https://pwjob-production-1606.up.railway.app/cadastro',{method: 'POST', body: dados});//forma nuvem
+    let data = await fetch('https://sendly-production-b679.up.railway.app/cadastro',{method: 'POST', body: dados});//forma nuvem
     
     //Passo 3
     //TRATAR API
