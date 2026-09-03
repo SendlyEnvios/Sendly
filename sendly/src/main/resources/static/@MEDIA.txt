@@ -1,0 +1,248 @@
+------------------------------
+*Responsividade*
+padding-inline para quando o espaço flex bugar!! 
+---------
+Ideia
+
+Respeitar o ABNT Design do público alvo de cada plataforma
+
+Tornar tamanho dinâmico o que deve ser dinâmico 
+
+Sempre manter o conforto visual e NÃO fazer igual em todas
+
+---------
+Teoria Padrão ABNT
+a ser seguido:
+
+No Desktop
+
+* Precisão do mouse
+* Muito espaço horizontal
+* Interface compacta funciona
+
+
+No Celular
+
+* Dedo ocupa muito espaço
+* Tela perto do rosto
+* Elementos pequenos parecem apertados rapidamente
+
+...
+
+obs: são completos contrários cel e desktop
+---------
+
+Ex Não Utilizável de @media ideal:
+
+
+
+/* Mobile primeiro */
+.container {
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape){
+    .container {
+        width: 60%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    .container {
+        width: 60%;
+    }
+}
+
+
+        👌
+👉 Primeiro mobile
+👉 Mobile orientation
+👉 Depois desktop
+
+Isso evita 90% dos problemas.
+
+-----
+
+% → para layouts fluidos
+
+flex / grid → para adaptar estrutura
+
+media queries → para ajustar em telas menores
+
+rem → para tipografia e espaçamento consistente
+
+1dvw = 1% da largura da tela(usar no width)
+
+1dvh = 1% da altura da tela(usar no height)
+
+obs:o d de dvw e dvh torna dinâmico alterando o tamanho para quando uma barra scroll aparece ou some, o mesmo para outros elementos como teclado virtual 
+
+--
+
+Guia de Decisão Proporcional
+
+tipografia - rem
+
+espaçamento - rem ou px
+
+largura - % + max-width
+
+altura tela - dvh/vh
+
+container - max-width + margin auto/flexbox
+
+
+*obs*:
+NÃO usar vh em componentes pequenos
+(inputs, botões, cards, imagens pequenas etc.)
+
+vh/dvh apenas para:
+
+* Seções Hero
+* Tela Inteira
+* Containers Principais
+* Layouts Fullscreen
+
+----
+
+Guia de FIGMA leitura
+nunca siga os valores do FIGMA
+
+--
+Grossura da Fonte 
+Font-Weight: ?;
+
+Thin        - 100
+Extra Light - 200
+Light       - 300
+Regular     - 400
+Medium      - 500
+Semi Bold   - 600
+Bold        - 700
+Extra Bold  - 800
+Black       - 900
+-----
+
+--
+@MEDIA
+Média de Resolução
+
+
+geralmente são:
+
+
+min-width
+
+0–480px     - celulares pequenos
+
+481–768px   - celulares grandes/tablets pequenos
+
+768–1024px  - tablets
+
+*1024–1280px - notebooks
+
+1280px+     - desktops grandes
+
+--
+
+O que mudar no @media
+
+
+você NÃO muda tudo, apenas:
+
+* Tamanhos Exagerados
+* Espaços
+* Alinhamentos
+* Grid/Flex
+* Número de Colunas
+* Largura de Containers
+* Tipografia Muito Pequena/Grande
+
+-
+
+Evite ajustar no @media:
+
+* Tudo em px fixo
+* Cada elemento individualmente
+* Pequenas diferenças irrelevantes
+
+Se precisar de 40 media queries:
+
+- layout base foi mal construído
+
+obs: o objetivo deve ser sempre manter o conforto visual e NÃO fazer igual
+
+----
+
+Seletor por Atributo
+type, name, for - atributos
+
+selector[atributos="valor"]
+
+
+Propriedades do Seletor
+
+^ - começa com
+[attr^="valor"]
+
+* - contém
+[attr*="valor"]
+
+$ - termina com
+[attr$="valor"]
+
+--
+Seletor por estados
+:first-of-type, :focus, :valid - estados
+
+input:focus
+
+
+--
+Mistura de Ambos
+
+input[name^="user"]:focus
+
+--
+EXTRA
+
+-
+Seletor por (contém a tag)
+
+label:has(a)
+Toda label que contém a tag "a"
+
+
+----------
+
+Propriedades CSS no Form:
+
+outline - border de formulário[input]
+borda de dentro
+
+--
+
+Propriedades CSS de Orientação:
+
+orientation: landscape; - deitado
+paisagem
+
+orientation: portrait; - em pé
+retrato
+
+-
+
+Outras:
+
+text-transform:uppercase;
+
+padding-inline: 13px;
+padding-left e padding-right ao mesmo tempo

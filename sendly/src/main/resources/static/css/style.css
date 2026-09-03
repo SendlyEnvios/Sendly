@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    margin-top: 2.75rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    height: auto;
+    width: 44%;
+}
+
+h1{
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    margin-bottom: 2.18rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 22.12rem;
+    width: 100%;
+}
+
+.labelsAcess{
+    font-size: 1rem;
+    margin-bottom: 0.31rem;
+}
+
+input:required{
+    border: none;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: #F0F0F0;
+    padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    width: 100%;
+}
+
+input:focus{
+    outline: 0.1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+
+label[for='password']{
+    margin-top: 1.31rem;
+}
+
+label[for="esqueciSenhaA"]{
+    margin-top: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+
+label[for="esqueciSenhaA"]:hover{
+    text-decoration: underline;
+}
+
+a{
+    text-decoration: none;
+}
+
+label[for="a_criarUmaConta"] a{
+    color: #336AEA;
+}
+
+label[for="a_criarUmaConta"] a:hover{
+    text-decoration: underline;
+}
+
+label[for="a_criarUmaConta"]{
+    align-self: center;
+}
+
+label:has(a) a, label:has(a){
+    font-family: 'Inter', sans-serif; 
+    color: #000000;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+input[type="submit"]{
+    border:none;
+    cursor: pointer;
+    color: #ffff;
+    align-self: center;
+    font-family: 'Inter', sans-serif;
+    background-color: #4E4B4B;
+    margin-bottom: 0.43rem;
+    font-weight: 400;
+    font-size: 1rem;
+    height: 3rem;
+    width: 70%;
+}
+
+input[type="submit"]:hover{
+    background-color: #5c5959;
+    transition: 0.1s;
+}
+
+
+@media(min-width:768px) and (orientation: portrait){
+
+    form{
+        max-width: 30rem ;
+    }
+}
+
+@media(min-width:768px) and (orientation: landscape){
+
+    form{
+        max-width: 30rem ;
+    }
+
+    body{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form{
+        max-width: 25rem;
+    }
+
+    img{
+        width: 22%;
+        height: fit-content;
+        
+    }
+
+    input[type="submit"]{
+        align-self: left;
+        width: 100%;
+    }
+
+    #linha{
+        height: 25vw;
+        width: 0.5px;
+        border-radius: 25px;
+        background-color: black;
+    }
+
+    h1{
+        text-align: left;
+    }
+
+}
+
+@media(min-width: 1200px){
+
+    body{
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form{
+        max-width: 25rem;
+    }
+
+    img{
+        width: 22%;
+        height: fit-content;
+        
+    }
+
+    input[type="submit"]{
+        align-self: left;
+        width: 100%;
+    }
+
+    #linha{
+        height: 25vw;
+        width: 0.5px;
+        border-radius: 25px;
+        background-color: black;
+    }
+
+    h1{
+        text-align: left;
+    }
+
+}

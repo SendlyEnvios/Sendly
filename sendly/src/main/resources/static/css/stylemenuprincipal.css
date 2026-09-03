@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;    
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding-top: 0.68rem;
+    margin-bottom: 6.37rem;
+    padding-bottom: 0.68rem;
+    padding-inline: 1.5rem;
+}
+
+a{
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+img{
+    border-radius: 50%;
+    height: auto;
+    max-width:20%;
+    background-color: gray;
+}
+
+header img{
+    margin: 0 1.43rem 0 1.75rem;
+}
+
+header section p{
+    font-size: 0.7rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+button{
+    text-transform: uppercase;
+    width: 40vw;
+    min-width: 12rem;
+    height: 5.25rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#buttonsCima button{
+font-family: 'Inter', sans-serif;
+background-color: #000000;
+color: rgba(255, 255, 255, 0.8 );
+font-weight: 400;
+
+}
+
+#buttonsBaixo button{
+    background-color: #B3B3B3;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    border: none;
+    color: white;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 3.56rem;
+    border-top: 1px solid black;
+    padding: 1.31rem;
+}
+
+footer div{
+    display: flex;
+    justify-content: space-between;
+}
+
+h1{
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-weight: 600;
+    color: #000000;
+}
+
+h2{
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-align: left;
+    margin-bottom: 0.4rem;
+}
+
+#status{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+footer section img{
+    max-width: 30%;
+    margin-left: 0.5rem;
+}
+
+footer section p{
+    font-size: 0.5rem;
+    width: 100%;
+}
+
+@media(min-width:1280px){
+    main{
+        
+    }
+
+    section{
+        height: 40%;
+    }
+
+    button{
+        height: 100%;
+        font-size: 3rem;
+    }
+
+    button:hover{
+        transform: scale(1.01);
+    }
+
+    #buttonsCima button{
+        font-size: 3.6rem;
+        font-weight: 600;
+    }
+}
+
+@keyframes animation{
+0%{}
+100%{}
+}
