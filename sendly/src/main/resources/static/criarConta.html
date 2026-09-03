@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./imgs/icon_box.png">
+    <link rel="stylesheet" href="./css/criarConta.css">
+    <title>Sendly</title>
+</head>
+
+<body>
+
+    <header>
+        <img id="imgD" src="imgs/icon_entregador.png" alt="icon_entregador">
+        <div id="linhaD"></div>
+    </header>
+
+    <form action="/cadastroNew" method="post">
+
+        <h1>Crie uma Conta</h1>
+
+        <label for="name" class="labelsAcess">*Nome Completo</label>
+        <input type="text" id="name" name="name" required maxlength="50" placeholder="Digite aqui o seu Nome completo" autofocus>
+
+        <label for="email" class="labelsAcess">*Email</label>
+        <input type="email" id="email" name="email" required maxlength="50" placeholder="Digite aqui seu Email. Ex: nome@gmail.com">
+        
+        <label for="password" class="labelsAcess">*Senha</label>
+        <input type="password" id="password" name="password" required maxlength="50" placeholder="Digite aqui sua senha. Ex: senha#123">
+
+        <label for="telefone" class="labelsAcess">*Telefone</label>
+        <input type="tel" id="telefone"  class="lastInputAcess" name="telefone" required maxlength="11" placeholder="Digite aqui seu telefone. Ex: 11976159640">
+
+        <input type="submit" value="CRIAR CONTA" href="./index.html">
+        <label for="a_criarUmaConta">Já possui uma conta? <a id="a_criarUmaConta" href="./index.html">Login</a></label>
+    </form>
+
+    <script src="./js/criarConta.js"></script>
+</body>
+</html>
+
+
+<!--
+Adicionar as notas de HTML em atributo form de input
+
+readonly 
+Após inserido, não alterável
+  -->
+
+
+<!----------------->
+
+
+ <!-- 
+ Adicionar as notas de RESPONSIVIDADE
+ min-height: 100vh invés de height: 100vh evita que corte conteúdo quando passar do tamanho da tela
+(TER SCROLL), se tiver scrool o height deve ser min-height para o height: 100vh; responsivo; 
+-->
+
+<!----------------->
+
+<!-- 
+
+Adicionar as notas de Javascript em Style
+bodyH.scrollHeight
+Altura atual da tela -->

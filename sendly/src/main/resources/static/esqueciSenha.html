@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./imgs/icon_box.png">
+    <link rel="stylesheet" href="./css/criarConta.css">
+    <title>Sendly</title>
+</head>
+
+<body>
+
+    <header>
+        <img id="imgD" src="imgs/icon_entregador.png" alt="icon_entregador">
+        <div id="linhaD"></div>
+    </header>
+
+    <form action="/cadastroUpdate" method="post">
+
+        <h1>E-mail de Recuperação</h1>
+
+        <p>Vamos enviar um link em seu gmail para que clique e altere sua senha: </p><br>
+        <p>1.Digite seu gmail. </p>
+        <p>2.Clique em ENVIAR LINK</p>
+        <p>3.Acesse seu gmail</p>
+        <p>4.Clique no link para alterar sua senha</p>
+        <label for="email" class="labelsAcess">Email</label>
+        <input type="email" class="lastInputAcess" id="email" name="email" required maxlength="50" placeholder="Digite aqui seu Email. Ex: nome@gmail.com" autofocus>
+
+        <input type="submit" value="ENVIAR LINK" href="#">
+        <label for="a_criarUmaConta">Tentar logar novamente? <a id="a_criarUmaConta" href="./index.html">Login</a></label>
+    </form>
+
+    <script src="./js/criarConta.js"></script>
+</body>
+</html>

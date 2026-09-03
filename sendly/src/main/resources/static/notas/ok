@@ -1,0 +1,51 @@
+        /* html de endereço e CEP o css é o do criar conta*/
+        
+        <label for="cep" class="labelsAcess">CEP</label>
+        <input type="text" id="cep" name="cep" required maxlength="50" placeholder="Digite o CEP aqui. Ex: 04867063">
+
+        <div class="enderecoInputBox">
+            <div>
+                <label for="logradouro" class="labelsAcess">Logradouro</label>
+                <input type="text" id="logradouro" name="logradouro" maxlength="50" placeholder="Digite o logradouro aqui. Ex: Av.Santomé">
+            </div>
+            <div>
+                <label for="numero" class="labelsAcess">Número</label>
+                <input type="text" id="numero" name="numero" maxlength="50" placeholder=" n°">
+            </div>
+        </div>
+
+        <label for="complemento" class="labelsAcess">Complemento</label>
+        <input type="text" id="complemento" name="complemento" maxlength="50" placeholder="Digite o complemento aqui. Ex: Apartamento 34">
+
+        <label for="bairro" class="labelsAcess">Bairro</label>
+        <input type="text" id="bairro" name="bairro" maxlength="50" placeholder="Digite o bairro aqui. Ex: Jardim Santa Tereza" >
+
+
+        <div class="lastInputAcess">
+            <div>
+                <label for="uf" class="labelsAcess">Estado</label>
+                <input type="text" id="uf" name="uf" maxlength="50" placeholder="Estado. Ex: São Paulo" >
+            </div>
+            <div>
+                <label for="localidade" class="labelsAcess">Cidade</label>
+                <input type="text" id="localidade" name="localidade" maxlength="50" placeholder="Cidade. Ex: Jundiaí" >
+            </div>
+        </div>
+
+
+
+        <!-- 
+Script 
+
+if(bodyH.scrollHeight > window.innerHeight && window.innerWidth > 768){
+    bodyH.style.marginTop = '18.1rem';
+    bodyH.style.marginBottom = '18.1rem';
+}else{
+    header.outerHTML = `
+    
+        <img src="imgs/icon_entregador.png" alt="icon_entregador">
+        <div id="linha"></div>
+    
+    `;
+    bodyH.style.marginBottom = '3rem';
+}; -->

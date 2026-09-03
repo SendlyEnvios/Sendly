@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./imgs/icon_box.png">
-    <link rel="stylesheet" href="./css/stylemenuprincipal.css">
+    <link rel="stylesheet" href="./css/styleMenuPrincipal.css">
     <title>Sendly</title>
 </head>
 <body>
     <header>
-        <a href="#">entregas</a>
-        <div>
+        <a href="#">ENTREGAs</a>
+        <div id="userBox">
             <section>
-                <p>Matheus Batista de Oliveira</p>
-                <p>Av. Paulo Guilguer Reimberg</p>
-                <p>Entregas Ativas 3</p>
+                <p id="name">Matheus Batista de Oliveira</p>
+                <p id="endereco">Av. Paulo Guilguer Reimberg</p>
+                <div id="entregasAtivasDiv"><p>Entregas Ativas:&nbsp<p id="entregasAtivas">0</p></p></div>
             </section>
-            <img src="./imgs/icon_entregador.png" alt="">
+            <img id="iconPerfil" src="./imgs/icon_entregador.png" alt="">
         </div>
     </header>
 
     <main>
-        <section id="buttonsCima">
+        <section id="paragrafoHero">
+            <div>
+                <h1>Sendly</h1>
+                <p>Somos uma séria empresa de negócios, onde você e o pacote</p>
+                <p> são a prioridade.</p>
+            </div>
+        </section>
+        <section id="imagemHero">
+            <img src="imgs/icon_box.png" alt="boxHero">
+        </section>
+        <section id="buttonsHero">
             <button>Realizar Entrega</button>
             <button>Rastrear Pedido</button>
-        </section>
-        <section id="buttonsBaixo">
             <button>Trabalhe Conosco</button>
         </section>
     </main>
@@ -38,15 +46,15 @@
             <p>© 2026 Sendly. Todos os direitos reservados.</p>
         </section>
         <section id="status">
-            <section>
+            <section><!-- ER é entrega recente -->
                     <h2>entrega recente</h2>
-                    <div><p id="statusPedido">A Caminho</p><p id="statusTempo">3 dias</p></div>
-                    <p id="statusEndereco">Av.Paulo Guilguer Reimberg</p>
+                    <div><p id="statusPedido">A Caminho</p><p id="statusTempo">3 Dias</p></div>
+                    <p id="statusEndereco">Av Abela Tala, 403</p>
                     <p id="statusEntregador">Jorge Tomato Silva</p>
             </section> 
-            <img src="./imgs/icon_entregador.png" alt="">
+            <img id="entregadorIcon" src="./imgs/icon_entregador.png" alt="">
         </section>
     </footer>
-
+    <script src="./js/javascriptMenuPrincipal.js"></script>
 </body>
 </html>

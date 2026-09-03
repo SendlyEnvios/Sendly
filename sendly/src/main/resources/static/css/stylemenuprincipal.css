@@ -8,11 +8,20 @@
     box-sizing: border-box;
 }
 
+footer, header, main{
+    background-color: white;
+}
+
 body{
+    background:
+    linear-gradient(rgba(255,255,255,0.49), rgba(255,255,255,0.9)),
+    url("https://images.unsplash.com/photo-1663517768994-a65e6ab3a40a?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZ1bmRvcyUyMHByZXRvc3xlbnwwfHwwfHx8MA%3D%3D");
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100vw;
+    align-items: center;
+    width: 100dvw;
     height: 100vh;
 }
 
@@ -23,30 +32,56 @@ header{
     width: 100%;
     border-bottom: 1px solid black;
     padding-top: 0.68rem;
-    margin-bottom: 6.37rem;
     padding-bottom: 0.68rem;
     padding-inline: 1.5rem;
 }
 
 a{
+    display: flex;
+    align-content: center;
+    align-items: center;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
     color: black;
+    height: 100%;
+    transition: all 0.1s ease-in-out;
+}
+
+a:hover{
+    transform: scale(1.02);
 }
 
 header div{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    transition: transform 0.3s ease-in-out;
+}
+
+/*
+#userBox:hover{
+    transform: scale(1.01);
+} 
+*/
+
+#entregasAtivasDiv{
+    justify-content: flex-start;
 }
 
 img{
+    align-self: center;
     border-radius: 50%;
     height: auto;
     max-width:20%;
+}
+
+#entregadorIcon{
+    border-radius: 50%;
+    height: auto;
+    max-width: 20%;
     background-color: gray;
 }
 
@@ -55,37 +90,73 @@ header img{
 }
 
 header section p{
-    font-size: 0.7rem;
+    font-size: 1.0rem;
 }
 
 main{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    margin: 6.37rem 0 6.37rem 0;
+    padding: 3rem;
     height: 100vh;
+    width: 100dvw;
+}
+
+#paragrafoHero{
+    width: 33.33%;
+}
+
+#paragrafoHero p{
+    text-align: justify;
+}
+
+#imagemHero{
+    display: flex;
+    WIDTH: 33.3%;
+    align-self: center;
+    justify-content: center;
+}
+
+img[src="imgs/icon_box.png"][alt="boxHero"]{
+    height: auto;
+    max-width:35rem;
+    width: 35vw;
+    background-color: none;
+    animation: animationu 6s infinite ease-in-out;
 }
 
 button{
     text-transform: uppercase;
-    width: 40vw;
+    width: 10vw;
     min-width: 12rem;
     height: 5.25rem;
     border-radius: 1rem;
     cursor: pointer;
 }
 
-#buttonsCima button{
-font-family: 'Inter', sans-serif;
-background-color: #000000;
-color: rgba(255, 255, 255, 0.8 );
-font-weight: 400;
-
+#buttonsHero{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 33.33%;
 }
 
-#buttonsBaixo button{
+#buttonsHero button{
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.8 );
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+#buttonsHero button:hover{
+    transform: scale(1.02);
+}
+
+#buttonsHero button:nth-child(3){
     background-color: #B3B3B3;
     font-family: 'Inter', sans-serif;
+    margin-top: 3rem;
     font-weight: 700;
     border: none;
     color: white;
@@ -95,9 +166,13 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 3.56rem;
     border-top: 1px solid black;
     padding: 1.31rem;
+    width: 100%;
+}
+
+label:has(a){
+    background-color: red;
 }
 
 footer div{
@@ -115,7 +190,7 @@ h2{
     text-transform: uppercase;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.7rem;
+    font-size: 1rem;
     text-align: left;
     margin-bottom: 0.4rem;
 }
@@ -126,41 +201,76 @@ h2{
     align-items: center;
 }
 
+#statusTempo{
+    justify-self: flex-end;
+}
+
+#status section div{
+    display: flex;
+    justify-content: space-between;
+}
+
 footer section img{
     max-width: 30%;
     margin-left: 0.5rem;
 }
 
 footer section p{
-    font-size: 0.5rem;
-    width: 100%;
+    font-size: 0.7rem;
 }
 
-@media(min-width:1280px){
-    main{
-        
+
+@keyframes animationu{
+0%      {transform: translateY(0);}
+50%     {transform: translateY(0.3rem);}
+100%    {transform: translateY(0);}
+}
+
+@media(max-width:1199px){
+
+    *{
+        font-size: 12px;
     }
 
-    section{
-        height: 40%;
+    header img{
+        margin: 0.01rem;
+    }
+
+    header section p {
+        font-size: 0.7rem;
+    }
+
+    #imagemHero{
+        display:none;
+    }
+
+    #paragrafoHero{
+        display: none;
+    }
+
+    #buttonsHero{
+        align-items: center;
+        width: 100%;
     }
 
     button{
-        height: 100%;
-        font-size: 3rem;
+        width: 100%;
+        height: 8.5rem;
     }
 
-    button:hover{
-        transform: scale(1.01);
+    main{
+        margin: 0;
     }
 
-    #buttonsCima button{
-        font-size: 3.6rem;
-        font-weight: 600;
+    footer section p{
+        font-size: 0.7rem;
     }
-}
 
-@keyframes animation{
-0%{}
-100%{}
+    h1{
+        font-size: 16px;
+    }
+
+    #status{
+        width: 50%;
+    }
 }

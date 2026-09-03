@@ -62,7 +62,7 @@ get(`http://172.16.0.213:8080/teste`, a); */
 const form = document.querySelector('form');
 const p = document.querySelectorAll('p');
 //const h1 = document.querySelector('h1');//utilização do retorno POST inútil
-
+const inputs = document.querySelectorAll('input');
 
 //Passo 2
 //RECEBER API
@@ -76,27 +76,33 @@ form.addEventListener('submit', async (e) => {
     const dados = new FormData(form);
 
     //let data = await fetch('http://172.16.0.213:8080/cadastro',{method: 'POST',body: dados});//forma rede local
-    let data = await fetch('https://pwjob-production-1606.up.railway.app/cadastro',{method: 'POST',body: dados});//forma nuvem
+    let data = await fetch('https://pwjob-production-1606.up.railway.app/cadastro',{method: 'POST', body: dados});//forma nuvem
+    
     //Passo 3
     //TRATAR API
 
     data = await data.json();
 
     //Utilização do retorno POST, inutil mas didático
-    //h1.innerHTML = data.email;
+    //h1.innerHTML = data.id;
 
     //Se Recebido ou Não, acontecem:
     
     if(data.id){
-        if(window.innerWidth >= 1200){
-            window.location.href = './menuprincipalDev.html'
-        }else{
-            window.location.href = './menuprincipal.html'
-        }
+        sessionStorage.setItem('usuarioId', data.id);//Guarda o id num cookie
+        window.location.href = './menuprincipal.html'
     }else{
         p.forEach(noLogin => {
             noLogin.innerHTML = data.mensagem;
             noLogin.style.color = "red";
         });
     };
+});
+
+inputs.forEach(input => {
+    input.addEventListener('input', ()=> {
+        p.forEach(noLogin =>{
+            noLogin.innerHTML = '';
+        });
+    });
 });
