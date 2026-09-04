@@ -1,10 +1,9 @@
 package com.netlify.sendlyenvios.sendly;
 
+import com.resend.core.exception.ResendException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -17,9 +16,6 @@ public class Service {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    private JavaMailSender mailSender;
 
     @PostMapping("/cadastro")
     public ResponseEntity<?> cadastro(
@@ -74,26 +70,31 @@ public class Service {
     public ResponseEntity<?> cadastroUpdate(
             @RequestParam String email) {
 
-        String token = UUID.randomUUID().toString();
+        try {
 
-        mailSender.send(enviarEmail(email, token));
-        System.out.println("Email enviado com sucesso para: " + email + " com token: " + token);
-        return ResponseEntity.ok("index");
-    }
+            String token = UUID.randomUUID().toString();
 
+            enviarEmail(email, token);
 
-    @GetMapping("/teste")
-    public ResponseEntity<?> Batata(
-        //@RequestParam String email //Vira @GetMapping(/teste?email=teste@gmail.com)
-    ){
-        //com @ResquestParam para ?
-        String sql = """
-                SELECT email FROM users WHERE email = ?
-                """;
+            System.out.println(
+                    "Email enviado com sucesso para: "
+                            + email
+                            + " com token: "
+                            + token
+            );
 
-        String sql2 = """
-                SELECT email FROM users WHERE id = 2
-                """;
-        return ResponseEntity.ok(jdbcTemplate.queryForObject(sql2, String.class));//, email));
+            return ResponseEntity.ok("index");
+
+        } catch (ResendException e) {
+
+            System.out.println("=================================");
+            System.out.println("ERRO DO RESEND:");
+            e.printStackTrace();
+            System.out.println("=================================");
+
+            return ResponseEntity
+                    .status(500)
+                    .body("Erro ao enviar email: " + e.getMessage());
+        }
     }
 }

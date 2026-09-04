@@ -1,32 +1,35 @@
 package com.netlify.sendlyenvios.sendly;
 
-import org.springframework.mail.SimpleMailMessage;
-
+import com.resend.Resend;
+import com.resend.core.exception.ResendException;
+import com.resend.services.emails.model.CreateEmailOptions;
+import com.resend.services.emails.model.CreateEmailResponse;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Controller {
 
-    public static SimpleMailMessage enviarEmail(String email, String token) {
+    public static void enviarEmail(String email, String token) throws ResendException {
 
-        SimpleMailMessage message = new SimpleMailMessage();
+        Resend resend = new Resend(System.getenv("RESEND_API_KEY"));
 
-        message.setFrom("matheussetacursos@gmail.com");
-        message.setTo(email);
-        message.setSubject("Redefinição de senha - Sendly");
+        CreateEmailOptions params = CreateEmailOptions.builder()
+                .from("onboarding@resend.dev")
+                .to(email)
+                .subject("Recuperação de senha - Sendly")
+                .html("""
+                    <h1>Recuperação de senha</h1>
+                    <p>Seu código de recuperação é:</p>
+                    <h2>%s</h2>
+                    """.formatted(token))
+                .build();
 
-        message.setText(
-                "Olá, você solicitou uma recuperação da sua conta Sendly?.\n\n" +
-                        "Recebemos uma solicitação para redefinir sua senha.\n\n" +
-                        "Clique no link abaixo para criar uma nova senha:\n\n" +
-                        "https://pwjob-production-1606.up.railway.app/cadastroUpdate?token=" + token + "\n\n" +
-                        "Este link é temporário.\n\n" +
-                        "Se você não solicitou a redefinição de senha, ignore este e-mail.\n\n" +
-                        "Equipe Sendly"
-        );
-        return message;
+        CreateEmailResponse data = resend.emails().send(params);
+
+        System.out.println("E-mail enviado!");
+        System.out.println("ID: " + data.getId());
     }
-
+    
     public static Object noUser(){
         Map<String, String> user = new HashMap<>();
         user.put("mensagem", "usuário ou senha incorretos");
