@@ -77,7 +77,8 @@ public class Service {
         String token = UUID.randomUUID().toString();
 
         mailSender.send(enviarEmail(email, token));
-        return ResponseEntity.ok("E-mail para recuperação enviado");
+        System.out.println("Email enviado com sucesso para: " + email + " com token: " + token);
+        return ResponseEntity.ok("index");
     }
 
 
