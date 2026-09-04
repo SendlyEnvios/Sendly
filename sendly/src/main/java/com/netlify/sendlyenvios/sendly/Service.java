@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.UUID;
 
@@ -69,32 +70,12 @@ public class Service {
     @PostMapping("/cadastroUpdate")
     public ResponseEntity<?> cadastroUpdate(
             @RequestParam String email) {
-
         try {
-
             String token = UUID.randomUUID().toString();
-
             enviarEmail(email, token);
-
-            System.out.println(
-                    "Email enviado com sucesso para: "
-                            + email
-                            + " com token: "
-                            + token
-            );
-
             return ResponseEntity.ok("index");
-
         } catch (ResendException e) {
-
-            System.out.println("=================================");
-            System.out.println("ERRO DO RESEND:");
-            e.printStackTrace();
-            System.out.println("=================================");
-
-            return ResponseEntity
-                    .status(500)
-                    .body("Erro ao enviar email: " + e.getMessage());
+            return ResponseEntity.status(500).body("Erro ao enviar email");
         }
     }
 }

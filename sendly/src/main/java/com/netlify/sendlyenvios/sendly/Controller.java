@@ -17,17 +17,14 @@ public class Controller {
                 .from("onboarding@resend.dev")
                 .to(email)
                 .subject("Recuperação de senha - Sendly")
-                .html("""
-                    <h1>Recuperação de senha</h1>
-                    <p>Seu código de recuperação é:</p>
-                    <h2>%s</h2>
-                    """.formatted(token))
+                .html(
+                        "<h1>Recuperação de senha</h1>" +
+                                "<p>Seu código de recuperação é:</p>" +
+                                "<h2>" + token + "</h2>"
+                )
                 .build();
 
-        CreateEmailResponse data = resend.emails().send(params);
-
-        System.out.println("E-mail enviado!");
-        System.out.println("ID: " + data.getId());
+        resend.emails().send(params);
     }
 
     public static Object noUser(){
