@@ -18,7 +18,7 @@ const statusEntregador = document.querySelector('#statusEntregador');
 async function menuInfo(){ 
 const usuarioId = sessionStorage.getItem('usuarioId');//Recebe o Cookie
 let data = await fetch(
-    `https://pwjob-production-1606.up.railway.app/cadastro?id=${usuarioId}`
+    `https://https://sendly-production-b679.up.railway.app/cadastro?id=${usuarioId}`
 );
 
 data = await data.json();
