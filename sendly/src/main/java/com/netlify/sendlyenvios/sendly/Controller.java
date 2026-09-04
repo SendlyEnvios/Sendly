@@ -11,7 +11,7 @@ public class Controller {
 
     public static void enviarEmail(String email, String token) throws ResendException {
 
-        Resend resend = new Resend(System.getenv("RESEND_API_KEY"));
+        Resend resend = new Resend(System.getenv("RESEND_SENHA"));
 
         CreateEmailOptions params = CreateEmailOptions.builder()
                 .from("onboarding@resend.dev")
@@ -29,7 +29,7 @@ public class Controller {
         System.out.println("E-mail enviado!");
         System.out.println("ID: " + data.getId());
     }
-    
+
     public static Object noUser(){
         Map<String, String> user = new HashMap<>();
         user.put("mensagem", "usuário ou senha incorretos");
