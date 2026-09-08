@@ -60,13 +60,15 @@ public class Service {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String passwordHash = encoder.encode(password);
 
+            System.out.println("Password Hash: " + passwordHash);
+
             String sql = """
                 INSERT INTO users(name, email, password, telefone) VALUES(?,?,?,?)
                 """;
 
             return ResponseEntity.ok(jdbcTemplate.update(sql, name, email, passwordHash, telefone));
         }catch(Exception e){
-            return ResponseEntity.ok(noUser());
+            return ResponseEntity.status(500).body("Erro ao criar usuário: " + e.getMessage());
         }
     }
 
