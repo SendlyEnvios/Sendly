@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.Map;
 import java.util.UUID;
 
 import static com.netlify.sendlyenvios.sendly.Controller.*;
@@ -24,11 +25,22 @@ public class Service {
             @RequestParam String password) {
 
         try {
-            String sql = """
-                    SELECT id, email FROM users WHERE email = ? AND password = ?
-                    """;
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-            return ResponseEntity.ok(jdbcTemplate.queryForMap(sql, email, password));
+            String sql = """
+                SELECT id, email, password FROM users
+                WHERE email = ?
+                """;
+
+            Map<String, Object> user = jdbcTemplate.queryForMap(sql, email);
+
+            if (encoder.matches(password, (String) user.get("password"))) {
+                user.remove("password");
+                return ResponseEntity.ok(user);
+            }
+
+            return ResponseEntity.ok(noUser());
+
         }catch(Exception e){
             return ResponseEntity.ok(noUser());
         }
@@ -60,11 +72,11 @@ public class Service {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             String passwordHash = encoder.encode(password);
 
-            System.out.println("Password Hash: " + passwordHash);
-
             String sql = """
                 INSERT INTO users(name, email, password, telefone) VALUES(?,?,?,?)
                 """;
+
+
 
             return ResponseEntity.ok(jdbcTemplate.update(sql, name, email, passwordHash, telefone));
         }catch(Exception e){
@@ -80,7 +92,7 @@ public class Service {
             enviarEmail(email, token);
             return ResponseEntity.ok("index");
         } catch (ResendException e) {
-            return ResponseEntity.status(500).body("Erro ao enviar email");
+            return ResponseEntity.status(500).body("Erro ao enviar email" + e.getMessage());
         }
     }
 }
