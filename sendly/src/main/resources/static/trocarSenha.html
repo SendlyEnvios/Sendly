@@ -17,20 +17,15 @@
     </header>
 
     <form action="/cadastroUpdate2" method="GET">
-        <h1>E-mail de Recuperação</h1>
-
-        <p>Vamos enviar um código em seu gmail para que valide e altere sua senha: </p><br>
-        <p>1.Digite seu gmail. </p>
-        <p>2.Clique em ENVIAR.</p>
-        <p>3.Acesse seu gmail.</p>
-        <p>4.Digite aqui o código recebido.</p>
-        <p>4.Clique em VALIDAR.</p>
-        <label for="email" class="labelsAcess">Validar Token</label>
-        <input type="text" class="lastInputAcess" id="token" name="token" required maxlength="255" placeholder="Digite aqui seu token" autofocus>
+        <label for="password" class="labelsAcess">Nova Senha</label>
+        <input type="password" id="password" name="password" required maxlength="50" placeholder="Digite aqui sua senha. Ex: Senha#123"><br>
+        <p>1.Mais de 8 caracteres.</p>
+        <p>2.Deve conter caractere especial *&$%#¨@!. </p>
+        <p>3.Letras maiúsculas e minúsculas.</p>
+        <p>4.Não deve ser a mesma de antes.</p>
         <p id="errorP"></p>
 
-        <input type="submit" value="ENVIAR" href="#">
-        <label for="a_criarUmaConta">Não recebeu? <a id="a_criarUmaConta" href="./index.html">Reenviar token</a>.</label>
+        <input type="submit" value="TROCAR SENHA" href="#">
     </form>
 
     <script src="./js/trocarSenha.js"></script>

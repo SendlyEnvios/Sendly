@@ -28,20 +28,16 @@ public class Service {
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
             String sql = """
-                SELECT id, email, password FROM users
-                WHERE email = ?
-                """;
-
+                    SELECT id, email, password FROM users
+                    WHERE email = ?
+                    """;
             Map<String, Object> user = jdbcTemplate.queryForMap(sql, email);
-
             if (encoder.matches(password, (String) user.get("password"))) {
                 user.remove("password");
                 return ResponseEntity.ok(user);
             }
-
             return ResponseEntity.ok(noUser());
-
-        }catch(Exception e){
+        } catch (Exception e) {
             return ResponseEntity.ok(noUser());
         }
     }
@@ -56,7 +52,7 @@ public class Service {
                     """;
 
             return ResponseEntity.ok(jdbcTemplate.queryForMap(sql, id));
-        }catch(Exception e){
+        } catch (Exception e) {
             return ResponseEntity.ok(noUser());
         }
     }
@@ -73,13 +69,12 @@ public class Service {
             String passwordHash = encoder.encode(password);
 
             String sql = """
-                INSERT INTO users(name, email, password, telefone) VALUES(?,?,?,?)
-                """;
-
+                    INSERT INTO users(name, email, password, telefone) VALUES(?,?,?,?)
+                    """;
 
 
             return ResponseEntity.ok(jdbcTemplate.update(sql, name, email, passwordHash, telefone));
-        }catch(Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(500).body("Erro ao criar usuário: " + e.getMessage());
         }
     }
@@ -88,17 +83,27 @@ public class Service {
     public ResponseEntity<?> cadastroUpdate(
             @RequestParam String email) {
         try {
-            String token = UUID.randomUUID().toString();
             String sql = """
+                    SELECT id FROM users WHERE email = ?
+                    """;
+            jdbcTemplate.queryForMap(sql, email);
+
+            try{
+                String token = UUID.randomUUID().toString();
+                sql = """
                     UPDATE users SET token = ? WHERE email = ?
                     """;
-            jdbcTemplate.update(sql, token, email);
-            enviarEmail(email, token);
-            return ResponseEntity.ok("index");
-        } catch (ResendException e) {
-            return ResponseEntity.status(500).body("Erro ao enviar email" + e.getMessage());
-        }
+                jdbcTemplate.update(sql, token, email);
+                enviarEmail(email, token);
+                return ResponseEntity.ok("index");
+            } catch (ResendException e) {
+                return ResponseEntity.status(500).body("Erro ao enviar email" + e.getMessage());
+            }
+        }catch (Exception e) {
+                return ResponseEntity.status(400).body("Gmail inválido");
+            }
     }
+
     @GetMapping("/cadastroUpdate2")
     public ResponseEntity<?> cadastroUpdate2(
             @RequestParam String token) {
@@ -106,9 +111,24 @@ public class Service {
             String sql = """
                     SELECT id FROM users WHERE token = ?
                     """;
-            Map<String, Object> user = jdbcTemplate.queryForMap(sql, token);
+            return ResponseEntity.ok(jdbcTemplate.queryForMap(sql, token));
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Token inválido");
+        }
+    }
 
-            return ResponseEntity.ok(user);
+    @PostMapping("/cadastroUpdate3")
+    public ResponseEntity<?> cadastroUpdate3(
+            @RequestParam String token,
+            @RequestParam String password) {
+        try {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String passwordHash = encoder.encode(password);
+
+            String sql = """
+                    UPDATE users SET password = ?, token = NULL WHERE token = ?
+                    """;
+            return ResponseEntity.ok(jdbcTemplate.update(sql, passwordHash, token));
         } catch (Exception e) {
             return ResponseEntity.status(400).body("Token inválido");
         }

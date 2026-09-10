@@ -9,11 +9,15 @@ form.addEventListener('submit', async (e) => {
     const dados = new FormData(form);
 
     const data = await fetch('https://sendly-production-b679.up.railway.app/cadastroUpdate',{method: 'POST', body: dados});
-        if(data.ok){
-        window.location.href = "./trocarSenha.html"
+        
+    if(await data.text() === "Gmail inválido"){
+        errorP.innerHTML = 'Gmail incorreto. Tente novamente'
+        errorP.style.color = 'red'
+    }else if(data.ok){
+            window.location.href = "./validarToken.html"
     }
-        }catch(e){
-            errorP.innerHTML = 'Gmail incorreto. Tente novamente'
-            errorP.style.color = 'red'
-        };
+    }catch(e){
+        errorP.innerHTML = 'Ocorreu um erro. Tente novamente'
+        errorP.style.color = 'red'
+    };
 });
