@@ -89,10 +89,28 @@ public class Service {
             @RequestParam String email) {
         try {
             String token = UUID.randomUUID().toString();
+            String sql = """
+                    UPDATE users SET token = ? WHERE email = ?
+                    """;
+            jdbcTemplate.update(sql, token, email);
             enviarEmail(email, token);
             return ResponseEntity.ok("index");
         } catch (ResendException e) {
             return ResponseEntity.status(500).body("Erro ao enviar email" + e.getMessage());
+        }
+    }
+    @GetMapping("/cadastroUpdate2")
+    public ResponseEntity<?> cadastroUpdate2(
+            @RequestParam String token) {
+        try {
+            String sql = """
+                    SELECT id FROM users WHERE token = ?
+                    """;
+            Map<String, Object> user = jdbcTemplate.queryForMap(sql, token);
+
+            return ResponseEntity.ok(user);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Token inválido");
         }
     }
 }

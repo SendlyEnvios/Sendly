@@ -16,9 +16,9 @@ const statusEntregador = document.querySelector('#statusEntregador');
 //Apagar todos os cookies: sessionStorage.clear();
 
 async function menuInfo(){ 
-const usuarioId = sessionStorage.getItem('usuarioId');//Recebe o Cookie
+const usuarioId = sessionStorage.getItem('usuarioId');//Recebe o Cookie]
 let data = await fetch(
-    `https://https://sendly-production-b679.up.railway.app/cadastro?id=${usuarioId}`
+    `https://sendly-production-b679.up.railway.app/cadastro?id=${usuarioId}`
 );
 
 data = await data.json();
@@ -32,6 +32,5 @@ statusEndereco.innerHTML = 'Av.Paulo Guilguer Reimberg';
 statusEntregador.innerHTML = 'Jorge Tomato Silva';
 //iconPerfil?
 };
-
 
 setInterval(menuInfo(), 180000);

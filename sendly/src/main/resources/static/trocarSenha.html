@@ -16,8 +16,7 @@
         <div id="linhaD"></div>
     </header>
 
-    <form action="/cadastroUpdate" method="post">
-
+    <form action="/cadastroUpdate2" method="GET">
         <h1>E-mail de Recuperação</h1>
 
         <p>Vamos enviar um código em seu gmail para que valide e altere sua senha: </p><br>
@@ -26,14 +25,14 @@
         <p>3.Acesse seu gmail.</p>
         <p>4.Digite aqui o código recebido.</p>
         <p>4.Clique em VALIDAR.</p>
-        <label for="email" class="labelsAcess">Email</label>
-        <input type="email" class="lastInputAcess" id="email" name="email" required maxlength="50" placeholder="Digite aqui seu Email. Ex: nome@gmail.com" autofocus>
+        <label for="email" class="labelsAcess">Validar Token</label>
+        <input type="text" class="lastInputAcess" id="token" name="token" required maxlength="255" placeholder="Digite aqui seu token" autofocus>
         <p id="errorP"></p>
 
         <input type="submit" value="ENVIAR" href="#">
-        <label for="a_criarUmaConta">Tentar logar novamente? <a id="a_criarUmaConta" href="./index.html">Login</a></label>
+        <label for="a_criarUmaConta">Não recebeu? <a id="a_criarUmaConta" href="./index.html">Reenviar token</a>.</label>
     </form>
 
-    <script src="./js/esqueciSenha.js"></script>
+    <script src="./js/trocarSenha.js"></script>
 </body>
 </html>

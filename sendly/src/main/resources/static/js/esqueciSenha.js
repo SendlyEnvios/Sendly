@@ -8,7 +8,10 @@ form.addEventListener('submit', async (e) => {
 
     const dados = new FormData(form);
 
-    await fetch('https://sendly-production-b679.up.railway.app/cadastroUpdate',{method: 'POST', body: dados});
+    const data = await fetch('https://sendly-production-b679.up.railway.app/cadastroUpdate',{method: 'POST', body: dados});
+        if(data.ok){
+        window.location.href = "./trocarSenha.html"
+    }
         }catch(e){
             errorP.innerHTML = 'Gmail incorreto. Tente novamente'
             errorP.style.color = 'red'
