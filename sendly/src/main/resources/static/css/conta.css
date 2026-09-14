@@ -31,7 +31,7 @@ img{
 
 h1{
     font-family: "Montserrat", sans-serif;
-    margin-bottom: 2.18rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 600;
     color: #000000;
@@ -199,9 +199,11 @@ input[type="submit"]:hover{
     }
 
     #imgD{
-        width: 22%;
+        position: fixed;
+        width: 20%;
         height: fit-content;
-        
+        top:60px;
+        left: 60px;
     }
 
     #linhaD{
@@ -210,6 +212,8 @@ input[type="submit"]:hover{
         width: 0.5px;
         border-radius: 25px;
         background-color: black;
+        top:80px;
+        left: 260px;
     }
 
 }
