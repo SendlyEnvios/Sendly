@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light;
+}
+
 footer, header, main{
     background-color: white;
 }

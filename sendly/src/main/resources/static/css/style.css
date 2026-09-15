@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    color-scheme: light;
+}
+
 body{
     display: flex;
     flex-direction: column;
