@@ -152,6 +152,12 @@ input[type="submit"]:hover{
     transition: 0.1s;
 }
 
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media(min-width:768px) and (orientation: portrait){
 
     form{

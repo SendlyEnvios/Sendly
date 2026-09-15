@@ -13,8 +13,9 @@ form.addEventListener('submit', async (e) => {
         errorP.innerHTML = 'Gmail incorreto. Tente novamente'
         errorP.style.color = 'red'
     }else if(data.ok){
+        alert("Token enviado com sucesso")
         sessionStorage.setItem("email", email);
-            window.location.href = "./validarToken.html"
+        window.location.href = "./validarToken.html"
     }
     }catch(e){
         errorP.innerHTML = 'Ocorreu um erro. Tente novamente'

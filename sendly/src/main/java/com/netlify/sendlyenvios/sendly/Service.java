@@ -100,8 +100,8 @@ public class Service {
                 return ResponseEntity.status(500).body("Erro ao enviar email" + e.getMessage());
             }
         }catch (Exception e) {
-                return ResponseEntity.status(400).body("Gmail inválido");
-            }
+            return ResponseEntity.status(400).body("Gmail inválido");
+        }
     }
 
     @GetMapping("/cadastroUpdate2")

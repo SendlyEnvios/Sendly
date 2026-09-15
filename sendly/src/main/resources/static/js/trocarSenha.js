@@ -10,6 +10,7 @@ form.addEventListener('submit', async (e) => {
         const data = await fetch('https://sendly-production-b679.up.railway.app/cadastroUpdate3',{method: 'POST', body: dados});
         
         if(data.ok){
+            alert("Sua senha foi alterada com sucesso");
             window.location.href = "./index.html"
         }
     }catch(e){

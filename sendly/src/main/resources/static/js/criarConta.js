@@ -8,6 +8,7 @@ form.addEventListener('submit', async (e) => {
     const data = await fetch('https://sendly-production-b679.up.railway.app/cadastroNew',{method: 'POST', body: dados});
 
     if(data.ok){
+        alert("Conta de "+ dados.get("name") +" criada com sucesso")
         window.location.href = "./index.html"
     }
 });
