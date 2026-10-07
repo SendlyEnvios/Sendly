@@ -136,6 +136,7 @@ button{
     height: 5.25rem;
     border-radius: 1rem;
     cursor: pointer;
+    border:0px;
 }
 
 #buttonsHero{
@@ -164,6 +165,10 @@ button{
     font-weight: 700;
     border: none;
     color: white;
+}
+
+#buttonsHero button:nth-child(2){
+    margin-top: 0.1rem;
 }
 
 footer{
@@ -221,6 +226,11 @@ footer section img{
 
 footer section p{
     font-size: 0.7rem;
+}
+
+#buttonsHero #selecionarServicoButton{
+    margin-top: 30dvh;
+    background-color: #B3B3B3;
 }
 
 

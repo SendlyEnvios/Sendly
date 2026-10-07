@@ -20,7 +20,7 @@ const buttonsTrabalheConosco = document.querySelector("#trabalheConosco");
 
 //Apagar todos os cookies: sessionStorage.clear();
 
-async function menuInfo(){ 
+/* async function menuInfo(){ 
 const usuarioId = sessionStorage.getItem('usuarioId');//Recebe o Cookie]
 let data = await fetch(
     `https://sendly-production-b679.up.railway.app/cadastro?id=${usuarioId}`
@@ -36,9 +36,9 @@ statusTempo.innerHTML = data.estimativaER;
 statusEndereco.innerHTML = 'Av.Paulo Guilguer Reimberg';
 statusEntregador.innerHTML = 'Jorge Tomato Silva';
 //iconPerfil?
-};
+}; */
 
-buttonsRealizarEntrega.addEventListener('Click', ()=>{
+buttonsRealizarEntrega.addEventListener('click', ()=>{
     main.innerHTML = `
         <section id="paragrafoHero">
             <div>
@@ -51,13 +51,12 @@ buttonsRealizarEntrega.addEventListener('Click', ()=>{
             <img src="imgs/icon_box.png" alt="boxHero">
         </section>
         <section id="buttonsHero">
-            <button id="realizarEntrega">Realizar Entrega</button>
-            <button id="rastrearPedido">Rastrear Pedido</button>
-            <button id="trabalheConosco">Trabalhe W</button>
+            <button id="realizarEntrega">Solicitar Serviço</button>
+            <button id="selecionarServicoButton">Selecionar Serviço</button>
         </section>
     `;
 })
 /* buttonsRastrearPedido.
 buttonsTravalheConosco. */
 
-setInterval(menuInfo(), 180000);
+/* setInterval(menuInfo(), 180000); */
