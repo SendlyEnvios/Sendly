@@ -20,7 +20,7 @@ const buttonsTrabalheConosco = document.querySelector("#trabalheConosco");
 
 //Apagar todos os cookies: sessionStorage.clear();
 
-/* async function menuInfo(){ 
+async function menuInfo(){ 
 const usuarioId = sessionStorage.getItem('usuarioId');//Recebe o Cookie]
 let data = await fetch(
     `https://sendly-production-b679.up.railway.app/cadastro?id=${usuarioId}`
@@ -36,7 +36,7 @@ statusTempo.innerHTML = data.estimativaER;
 statusEndereco.innerHTML = 'Av.Paulo Guilguer Reimberg';
 statusEntregador.innerHTML = 'Jorge Tomato Silva';
 //iconPerfil?
-}; */
+};
 
 buttonsRealizarEntrega.addEventListener('click', ()=>{
     main.innerHTML = `
@@ -59,4 +59,4 @@ buttonsRealizarEntrega.addEventListener('click', ()=>{
 /* buttonsRastrearPedido.
 buttonsTravalheConosco. */
 
-/* setInterval(menuInfo(), 180000); */
+setInterval(menuInfo(), 180000);
